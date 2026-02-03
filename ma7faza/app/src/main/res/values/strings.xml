@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">ma7faza</string>
+    <string name="login_icon">login icon</string>
+    <string name="login_title">Enter Your Mobile Number &amp; Password</string>
+    <string name="Mobile_Number">Mobile Number</string>
+    <string name="Password">Password</string>
+    <string name="Login">Login</string>
+    <string name="sign_up_title">Create New Account</string>
+    <string name="sign_up">Don\'t have an account? Sign Up</string>
+    <string name="sign_up_button">Create a new account</string>
+    <string name="back_button">Back</string>
+    <string name="name">Name</string>
+
+
+
+
+
+</resources>
