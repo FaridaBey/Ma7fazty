@@ -38,7 +38,7 @@ fun MyTopBar(
             Image(
                 painter = painterResource(id = R.drawable.bar_logo),
                 contentDescription = stringResource(R.string.app_name),
-                modifier = Modifier.height(screenHeight * 0.5f)
+                modifier = Modifier.height(screenHeight * 0.05f)
             )
         },
         navigationIcon = {

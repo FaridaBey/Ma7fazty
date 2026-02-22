@@ -58,6 +58,7 @@ fun LoginScreen(
         }
     }
 
+
     LoginScreenContent(
         state  =  state,
         onIntent = viewModel::processIntent
@@ -122,7 +123,8 @@ fun LoginScreenContent(
                     label = stringResource(R.string.Mobile_Number),
                     keyboardType = KeyboardType.Phone,
                     onTogglePasswordVisibility = {},
-                    errorMessage = state.mobileError)
+                    errorMessage = state.mobileError
+                )
 
 
 

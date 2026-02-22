@@ -10,6 +10,16 @@
     <string name="sign_up_button">Create a new account</string>
     <string name="back_button">Back</string>
     <string name="name">Name</string>
+    <string name="Home_icon">Home</string>
+    <string name="History_icon">History</string>
+    <string name="Transfer_icon">Transfer</string>
+    <string name="Profile_icon">Profile</string>
+    <string name="History">History</string>
+    <string name="Latest_trans">Latest Transactions</string>
+    <string name="view_all">View All</string>
+
+
+
 
 
 

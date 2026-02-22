@@ -44,10 +44,11 @@ fun RegisterScreen(
 
     LaunchedEffect(state){
         when{
-            state.backclick -> onBackClick()
-            state.createsuccess -> onRegisterSuccess()
+        state.backclick -> onBackClick()
+        state.createsuccess -> onRegisterSuccess()
         }
     }
+
     RegisterScreenContent(
         state = state,
         onIntent = viewModel::processIntent
