@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ma7faza.domain.data.TransactionItem
@@ -45,7 +46,7 @@ fun BottomDialog(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Black.copy(alpha = 0.4f))
+            .background(Color.Black.copy(alpha = 0.6f))
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = null
@@ -104,7 +105,7 @@ fun BottomDialog(
                 }
             }
             
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(43.dp))
         }
     }
 }
@@ -112,8 +113,7 @@ fun BottomDialog(
 @Composable
 private fun TransactionDetails(transaction: TransactionItem) {
     Column(
-        modifier = Modifier.fillMaxWidth()
-            .fillMaxHeight(0.35f),
+        modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically){
@@ -131,7 +131,7 @@ private fun TransactionDetails(transaction: TransactionItem) {
                     tint = Color.Unspecified
                 )
             }
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.width(12.dp))
             Text(
                 text = transaction.name,
                 fontSize = 20.sp,
@@ -157,6 +157,18 @@ private fun TransactionDetails(transaction: TransactionItem) {
 
         Spacer(modifier = Modifier.height(12.dp))
 
+        val amountColor = when {
+            transaction.Status.equals("Pending", ignoreCase = true) -> Color(0xFFFFB300)
+            transaction.isCredit -> Color(0xFF4CAF50)
+            else -> Color(0xFFA63232)
+        }
+        
+        val textDecoration = if (transaction.Status.equals("Failed", ignoreCase = true)) {
+            TextDecoration.LineThrough
+        } else {
+            TextDecoration.None
+        }
+
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -169,7 +181,8 @@ private fun TransactionDetails(transaction: TransactionItem) {
                 text = if (transaction.isCredit) "+$${transaction.amount}" else "-$${transaction.amount}",
                 fontSize = 32.sp,
                 fontWeight = FontWeight.Bold,
-                color = if (transaction.isCredit) Color(0xFF4CAF50) else Color(0xFFA63232)
+                color = amountColor,
+                textDecoration = textDecoration
             )
         }
 
@@ -194,6 +207,34 @@ private fun TransactionDetails(transaction: TransactionItem) {
                 fontWeight = FontWeight.Bold,
                 fontFamily = SoraFontFamily,
                 color = Color.Black,
+                fontSize = 14.sp
+            )
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .border(1.dp, Color(0xFFEEEEEE), RoundedCornerShape(12.dp))
+                .padding(10.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = "Status",
+                fontFamily = SoraFontFamily,
+                color = Color.Gray,
+                fontSize = 14.sp
+            )
+            Text(
+                text = transaction.Status,
+                fontWeight = FontWeight.Bold,
+                fontFamily = SoraFontFamily,
+                color = when (transaction.Status.lowercase()) {
+                    "failed" -> Color(0xFFA63232)
+                    else -> Color.Black
+                },
                 fontSize = 14.sp
             )
         }

@@ -48,7 +48,8 @@ class homeViewModel : ViewModel() {
                 date = "Today 12:42",
                 amount = "35.23",
                 icon = R.drawable.ic_transfer,
-                isCredit = false
+                isCredit = false,
+                Status = "Success"
             ),
             TransactionItem(
                 id = 2,
@@ -56,7 +57,8 @@ class homeViewModel : ViewModel() {
                 date = "Today 12:32",
                 amount = "2500.00",
                 icon = R.drawable.ic_transfer,
-                isCredit = true
+                isCredit = true,
+                Status = "Success"
             ),
             TransactionItem(
                 id = 3,
@@ -64,7 +66,8 @@ class homeViewModel : ViewModel() {
                 date = "Yesterday 10:15",
                 amount = "120.50",
                 icon = R.drawable.ic_transfer,
-                isCredit = false
+                isCredit = false,
+                Status = "Failed"
             )
         )
 

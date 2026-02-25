@@ -18,6 +18,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ma7faza.domain.data.TransactionItem
@@ -29,9 +30,22 @@ fun TransactionRow(
     date: String,
     amount: String,
     icon: Int, // Resource ID for the logo
+    status: String = "Pending",
     IsCredit: Boolean = false,
     onClick: () -> Unit = {}
 ) {
+    val amountColor = when {
+        status.equals("Pending", ignoreCase = true) -> Color(0xFFFFB300)
+        IsCredit -> Color(0xFF4CAF50)
+        else -> Color(0xFFE57373)
+    }
+
+    val textDecoration = if (status.equals("Failed", ignoreCase = true)) {
+        TextDecoration.LineThrough
+    } else {
+        TextDecoration.None
+    }
+
     Column {
         Row(
             modifier = Modifier
@@ -81,7 +95,8 @@ fun TransactionRow(
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = SoraFontFamily,
-                color = if (IsCredit) Color(0xFF4CAF50) else Color(0xFFE57373)
+                color = amountColor,
+                textDecoration = textDecoration
             )
             
             Spacer(modifier = Modifier.width(8.dp))
@@ -108,7 +123,8 @@ fun TransactionList(
     onTransactionClick: (TransactionItem) -> Unit = {}
 ) {
     LazyColumn(
-        modifier = modifier.fillMaxSize()
+        modifier = modifier,
+        contentPadding = PaddingValues(bottom = 16.dp)
     ) {
         items(
             items = transactions,
@@ -119,6 +135,7 @@ fun TransactionList(
                 date = transaction.date,
                 amount = transaction.amount,
                 icon = transaction.icon,
+                status = transaction.Status,
                 IsCredit = transaction.isCredit,
                 onClick = { onTransactionClick(transaction) }
             )

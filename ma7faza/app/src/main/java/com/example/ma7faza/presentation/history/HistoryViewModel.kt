@@ -95,7 +95,8 @@ class historyViewModel : ViewModel() {
                 date = "Today 12:42",
                 amount = "35.23",
                 icon = R.drawable.ic_transfer,
-                isCredit = false
+                isCredit = false,
+                Status = "Success"
             ),
             TransactionItem(
                 id = 2,
@@ -103,7 +104,8 @@ class historyViewModel : ViewModel() {
                 date = "Today 12:32",
                 amount = "2500.00",
                 icon = R.drawable.ic_transfer,
-                isCredit = true
+                isCredit = true,
+                Status = "Success"
             ),
             TransactionItem(
                 id = 3,
@@ -111,7 +113,62 @@ class historyViewModel : ViewModel() {
                 date = "Yesterday 10:15",
                 amount = "120.50",
                 icon = R.drawable.ic_transfer,
-                isCredit = false
+                isCredit = false,
+                Status = "Failed"
+            ),
+            TransactionItem(
+                id = 4,
+                name = "Walmart",
+                date = "Today 12:42",
+                amount = "35.23",
+                icon = R.drawable.ic_transfer,
+                isCredit = false,
+                Status = "Pending"
+            ),
+            TransactionItem(
+                id = 5,
+                name = "Salary",
+                date = "Today 12:32",
+                amount = "2500.00",
+                icon = R.drawable.ic_transfer,
+                isCredit = true,
+                Status = "Success"
+            ),
+            TransactionItem(
+                id = 6,
+                name = "Amazon",
+                date = "Yesterday 10:15",
+                amount = "120.50",
+                icon = R.drawable.ic_transfer,
+                isCredit = false,
+                Status = "Failed"
+            ),
+            TransactionItem(
+                id = 7,
+                name = "Walmart",
+                date = "Today 12:42",
+                amount = "35.23",
+                icon = R.drawable.ic_transfer,
+                isCredit = false,
+                Status = "Success"
+            ),
+            TransactionItem(
+                id = 8,
+                name = "Salary",
+                date = "Today 12:32",
+                amount = "2500.00",
+                icon = R.drawable.ic_transfer,
+                isCredit = true,
+                Status = "Success"
+            ),
+            TransactionItem(
+                id = 9,
+                name = "Amazon",
+                date = "Yesterday 10:15",
+                amount = "120.50",
+                icon = R.drawable.ic_transfer,
+                isCredit = false,
+                Status = "Pending"
             )
         )
 

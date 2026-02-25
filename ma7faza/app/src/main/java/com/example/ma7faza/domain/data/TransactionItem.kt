@@ -6,5 +6,6 @@ data class TransactionItem (
     val date: String,
     val amount: String,
     val icon: Int,
-    val isCredit: Boolean = false
+    val isCredit: Boolean = false,
+    val Status: String = "Pending"
 )
